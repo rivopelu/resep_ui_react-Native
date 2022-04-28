@@ -1,7 +1,12 @@
 
 import React, { Component, useState } from 'react'
 import BtnComp from './components/BtnComp'
-import { View, Text, FlatList, TouchableOpacity, StatusBar, Image, ScrollView } from 'react-native'
+import {
+  View, Text, FlatList, TouchableOpacity, StatusBar,
+  Image,
+  ImageBackground,
+  ScrollView
+} from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons';
 
 
@@ -184,7 +189,7 @@ const App = () => {
           </View>
           {/* Gamabar Makanan */}
           <View style={{}}>
-            <FlatList data={dataTranding}
+            <FlatList data={dataVidio}
 
               style={{ marginLeft: 10 }}
               showsHorizontalScrollIndicator={false}
@@ -199,12 +204,16 @@ const App = () => {
                     elevation: 3,
                     paddingHorizontal: 10,
                     marginBottom: 10,
-                    borderRadius: 15,
+
                     paddingVertical: 8,
                     marginLeft: 5,
                     marginRight: 5,
                   }}>
-                    <Image source={item.image} style={{ width: 200, height: 150, borderRadius: 15 }} resizeMode={'cover'} />
+                    <ImageBackground source={item.image} style={{ width: 200, height: 150, borderRadius: 15 }} resizeMode={'cover'} >
+                      <View style={{ backgroundColor: 'rgba(0,0,0,0.35)', }}>
+                        <Text style={{ color: '#fff', marginLeft: 10 }}>{item.duration}</Text>
+                      </View>
+                    </ImageBackground>
                     <Text style={{ color: '#1b1b1b', fontSize: 18, fontWeight: 'bold' }}>{item.namaResep}</Text>
                     <Text style={{ color: 'gray' }}>{item.author}</Text>
                   </View>
